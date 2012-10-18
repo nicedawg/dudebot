@@ -12,13 +12,13 @@ See [hubot's home page][hubot] for more information
 
 To run dudebot:
 
-1. make sure the following environment variables are defined:
+1\. make sure the following environment variables are defined:
 
   > HUBOT_AIM_NAME
   > HUBOT_AIM_EMAIL
   > HUBOT_AIM_PASSWORD
   > HUBOT_AIM_ROOMS
 
-2. and then run ./bin/dudebot
+2\. and then run ./bin/dudebot
 
 
