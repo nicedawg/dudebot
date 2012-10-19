@@ -19,6 +19,13 @@ To run dudebot:
   > HUBOT_AIM_PASSWORD
   > HUBOT_AIM_ROOMS
 
-2\. and then run ./bin/dudebot
+2\. and then run `./bin/dudebot`
 
 
+To install and run on Windows:
+1. Use http://windows.github.com/ to download a Git for Windows GUI
+2. Clone the repo to your PC.
+3. Install NodeJS - http://nodejs.org/dist/v0.8.2/node-v0.8.2-x86.msi
+4. Open a command prompt and change to your dudebot directory
+5. run `bin/dudebot.bat` to start dudebot in your shell
+6. run `bin/dudebot.bat -a aim` to start dudebot in AIM
