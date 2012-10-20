@@ -3,3 +3,4 @@ Split up messages because
 Support joining multiple chat rooms
 Refactor common code
 Add script to trigger .close() for AIM adapter (e.g., dudebot die)
+Add error message to oscar.js when sending a message over allowed limit
