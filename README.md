@@ -30,4 +30,3 @@ To install and run on Windows:
 5. run `bin/dudebot.bat` to start dudebot in your shell
 6. run `bin/dudebot.bat -a aim` to start dudebot in AIM
 
->>>>>>> 745676bea1f08a471113583c61b771d262ab9f40
