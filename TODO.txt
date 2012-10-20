@@ -1,0 +1,5 @@
+Split up messages because
+   Error: IM messages cannot be longer than 2544 characters
+Support joining multiple chat rooms
+Refactor common code
+Add script to trigger .close() for AIM adapter (e.g., dudebot die)
