@@ -1,5 +1,5 @@
-Split up messages because
-   Error: IM messages cannot be longer than 2544 characters
+Fix buggy behavior regarding splitting up messages into chunks
 Support joining multiple chat rooms
 Refactor common code
 Add error message to oscar.js when sending a message over allowed limit
+pug bomb causes some sort of error where it seems he went offline
