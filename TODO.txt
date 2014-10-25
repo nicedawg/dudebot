@@ -3,3 +3,6 @@ Support joining multiple chat rooms
 Refactor common code
 Add error message to oscar.js when sending a message over allowed limit
 pug bomb causes some sort of error where it seems he went offline
+Add script which lets you set dudebot's answer to your next request
+  (so you can say "dudebot answer Omniprise" in secret and then publicly say "dudebot image me CRM Hell")
+Add script to hear "what is" or "how do" and do a "let me google that for you" search
