@@ -1,2 +1,6 @@
 undefined
 .*.sw*
+
+bin/hubot.env
+*.pid
+*.log

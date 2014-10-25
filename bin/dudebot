@@ -1,5 +1,71 @@
 #!/bin/bash
 
-BIN_DIR=$(dirname $0)
+# modify this to fit your installation
+BASE_DIR=/Users/brady.somerville/Sites/dudebot
 
-$BIN_DIR/hubot -a aim -l dudebot -n dudebot
+BIN_DIR=$BASE_DIR/bin
+# Save Environement Variables in ./hubot.env
+# e.g 
+#   export HUBOT_AIM_USERNAME='hubot@example.com'
+#   export HUBOT_AIM_PASSWORD='abc123''
+#   export HUBOT_AIM_NAME='example.com'
+source $BIN_DIR/hubot.env
+
+DAEMON=$BIN_DIR/../node_modules/.bin/hubot
+DAEMONOPTS="--name dudebot -l -d --adapter aim"
+
+NAME=dudebot
+DESC="dudebot"
+PIDFILE=$BASE_DIR/$NAME.pid
+LOGFILE=$BASE_DIR/hubot.log
+SCRIPTNAME=/etc/init.d/$NAME
+
+case "$1" in
+start)
+  printf "%-50s" "Starting $DESC..."
+  npm install
+  export PATH="node_modules/.bin:node_modules/hubot/node_modules/.bin:$PATH"
+  printf "%s\n", "$DAEMON $DAEMONOPTS >> $LOGFILE  & echo $!"
+  PID=`$DAEMON $DAEMONOPTS >> $LOGFILE  & echo $!`
+  #echo "Saving PID" $PID " to " $PIDFILE
+        if [ -z $PID ]; then
+            printf "%s\n" "Fail"
+        else
+            echo $PID > $PIDFILE
+            printf "%s\n" "Ok"
+        fi
+;;
+status)
+        printf "%-50s" "Checking $DESC..."
+        if [ -f $PIDFILE ]; then
+            PID=`cat $PIDFILE`
+            if [ -z "`ps axf | grep ${PID} | grep -v grep`" ]; then
+                printf "%s\n" "Process dead but pidfile exists"
+            else
+                echo "Running"
+            fi
+        else
+            printf "%s\n" "Service not running"
+        fi
+;;
+stop)
+        printf "%-50s" "Stopping $DESC"
+            PID=`cat $PIDFILE`
+        if [ -f $PIDFILE ]; then
+            kill $PID
+            printf "%s\n" "Ok"
+            rm -f $PIDFILE
+        else
+            printf "%s\n" "pidfile not found"
+        fi
+;;
+ 
+restart)
+    $0 stop
+    $0 start
+;;
+ 
+*)
+        echo "Usage: $0 {status|start|stop|restart}"
+        exit 1
+esac
